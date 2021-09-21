@@ -1,34 +1,77 @@
-version: "2.0"
-
-intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-
-responses:
-  utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
+version: '2.0'
+config:
+  store_entities_as_slots: true
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- problem_conceiving:
+    use_entities: true
+entities: []
+slots: {}
+responses:
+  utter_greet:
+  - text: Hello, there! How can I help you?
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Thank you for your time. Have a great day!
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_greet_follow:
+  - text: Alright. Before we proceed, help me with some basic information about you.
+  utter_ask_name:
+  - text: What's your name?
+  utter_ask_phone:
+  - text: Nice to meet you, {name}. What's your contact number?
+  utter_ask_email:
+  - text: And your email address?
+  utter_more_questions:
+  - text: Great! Let's see where you stand. Please help me with answers to a few more questions.
+  utter_ask_sex:
+  - text: What’s your sex?
+  utter_ask_age:
+  - text: What's your age?
+  utter_ask_conceive_duration:
+  - text: How long are you trying to conceive?
+  utter_ask_bmi:
+  - text: What is your BMI?
+  utter_ask_alcohol:
+  - text: Do you consume alcohol?
+  utter_ask_smoke:
+  - text: Do you smoke?
+  utter_ask_prior_consultation:
+  - text: Have you consulted any doctor before regarding your problem?
+  utter_schedule:
+  - buttons:
+    - payload: intent_schedule_yes
+      title: Book an appointment
+    - payload: intent_schedule_no
+      title: Not now
+    text: Do you want to schedule a second opinion with our fertility specialists?
+  utter_schedule_done:
+  - text: Your appointment has been scheduled. A confirmation is sent to your phone {phone} and email address {email}.
+  utter_other_help:
+  - text: Would you like any other help?
+actions: []
+forms: {}
+e2e_actions: []
