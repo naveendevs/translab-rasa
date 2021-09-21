@@ -22,7 +22,9 @@ intents:
 - problem_conceiving:
     use_entities: true
 entities: []
-slots: {}
+slots:
+  - name:
+    - type: text
 responses:
   utter_greet:
   - text: Hello, there! How can I help you?
