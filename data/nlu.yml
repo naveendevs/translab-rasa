@@ -89,4 +89,4 @@ nlu:
     - I am facing problem conceiving
 - intent: intent_input_name
   examples: |
-    - Naveen Saini
+    - [Neeta Sharma](name)
